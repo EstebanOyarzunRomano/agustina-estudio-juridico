@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
+import ScrollReveal from "./ScrollReveal";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,6 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form handling placeholder
     alert("Gracias por tu consulta. Nos pondremos en contacto a la brevedad.");
     setFormData({ nombre: "", email: "", telefono: "", mensaje: "" });
   };
@@ -19,7 +19,7 @@ const ContactSection = () => {
   return (
     <section id="contacto" className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <h2 className="font-heading text-3xl md:text-5xl text-foreground mb-4">
             Contacto
           </h2>
@@ -27,71 +27,67 @@ const ContactSection = () => {
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-light">
             Agendá tu consulta. Primera entrevista sin cargo.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Contact info */}
-          <div className="space-y-8">
-            {[
-              { icon: Phone, label: "Teléfono", value: "+54 11 1234-5678" },
-              { icon: Mail, label: "Email", value: "contacto@estudiojuridico.com" },
-              { icon: MapPin, label: "Dirección", value: "Av. Corrientes 1234, Piso 8°, CABA" },
-              { icon: Clock, label: "Horario", value: "Lunes a Viernes, 9:00 a 18:00 hs" },
-            ].map((item, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <div className="w-12 h-12 flex items-center justify-center bg-primary text-primary-foreground flex-shrink-0">
-                  <item.icon size={20} strokeWidth={1.5} />
+          <ScrollReveal animation="animate-fade-in-left">
+            <div className="space-y-8">
+              {[
+                { icon: Phone, label: "Teléfono", value: "+54 11 1234-5678" },
+                { icon: Mail, label: "Email", value: "contacto@estudiojuridico.com" },
+                { icon: MapPin, label: "Dirección", value: "Av. Corrientes 1234, Piso 8°, CABA" },
+                { icon: Clock, label: "Horario", value: "Lunes a Viernes, 9:00 a 18:00 hs" },
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 flex items-center justify-center bg-primary text-primary-foreground flex-shrink-0 group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-500">
+                    <item.icon size={20} strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <p className="text-sm uppercase tracking-widest text-muted-foreground mb-1">
+                      {item.label}
+                    </p>
+                    <p className="text-foreground font-light">{item.value}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm uppercase tracking-widest text-muted-foreground mb-1">
-                    {item.label}
-                  </p>
-                  <p className="text-foreground font-light">{item.value}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <input
-              type="text"
-              placeholder="Nombre completo"
-              required
-              value={formData.nombre}
-              onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-              className="w-full bg-card border border-border px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors text-sm"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              required
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full bg-card border border-border px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors text-sm"
-            />
-            <input
-              type="tel"
-              placeholder="Teléfono"
-              value={formData.telefono}
-              onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
-              className="w-full bg-card border border-border px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors text-sm"
-            />
-            <textarea
-              placeholder="Describí brevemente tu consulta..."
-              rows={5}
-              required
-              value={formData.mensaje}
-              onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
-              className="w-full bg-card border border-border px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors text-sm resize-none"
-            />
-            <button
-              type="submit"
-              className="w-full bg-primary text-primary-foreground py-4 text-sm uppercase tracking-widest font-medium hover:bg-navy-light transition-colors duration-300"
-            >
-              Enviar Consulta
-            </button>
-          </form>
+          <ScrollReveal animation="animate-fade-in-right">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {[
+                { type: "text", placeholder: "Nombre completo", key: "nombre" as const, required: true },
+                { type: "email", placeholder: "Email", key: "email" as const, required: true },
+                { type: "tel", placeholder: "Teléfono", key: "telefono" as const, required: false },
+              ].map((field) => (
+                <input
+                  key={field.key}
+                  type={field.type}
+                  placeholder={field.placeholder}
+                  required={field.required}
+                  value={formData[field.key]}
+                  onChange={(e) => setFormData({ ...formData, [field.key]: e.target.value })}
+                  className="w-full bg-card border border-border px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent focus:shadow-md transition-all duration-300 text-sm"
+                />
+              ))}
+              <textarea
+                placeholder="Describí brevemente tu consulta..."
+                rows={5}
+                required
+                value={formData.mensaje}
+                onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
+                className="w-full bg-card border border-border px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent focus:shadow-md transition-all duration-300 text-sm resize-none"
+              />
+              <button
+                type="submit"
+                className="w-full bg-primary text-primary-foreground py-4 text-sm uppercase tracking-widest font-medium hover:bg-navy-light hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
+              >
+                Enviar Consulta
+              </button>
+            </form>
+          </ScrollReveal>
         </div>
       </div>
     </section>
