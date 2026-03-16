@@ -53,7 +53,7 @@ const ServicesSection = () => {
             <ScrollReveal
               key={index}
               animation="animate-scale-in"
-              delay={index * 150}
+              delay={index * 300}
             >
               <div className="border border-primary-foreground/15 p-8 hover:border-accent/50 hover:bg-primary-foreground/5 transition-all duration-500 group cursor-default">
                 <service.icon
