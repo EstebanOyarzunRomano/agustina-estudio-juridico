@@ -35,7 +35,10 @@ const ScrollReveal = ({
     <div
       ref={ref}
       className={`${className} ${isVisible ? animation : "opacity-0"}`}
-      style={{ animationDelay: `${delay}ms` }}
+      style={{
+        animationDelay: isVisible ? `${delay}ms` : undefined,
+        animationFillMode: "both",
+      }}
     >
       {children}
     </div>

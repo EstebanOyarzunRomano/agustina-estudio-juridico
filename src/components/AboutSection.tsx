@@ -40,7 +40,7 @@ const AboutSection = () => {
             <ScrollReveal
               key={index}
               animation="animate-slide-up"
-              delay={index * 200}
+              delay={index * 400}
             >
               <div className="bg-card p-8 text-center border border-border hover:border-accent/40 hover:shadow-lg hover:-translate-y-2 transition-all duration-500 group">
                 <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center bg-primary text-primary-foreground group-hover:bg-accent group-hover:text-accent-foreground group-hover:scale-110 transition-all duration-500">
