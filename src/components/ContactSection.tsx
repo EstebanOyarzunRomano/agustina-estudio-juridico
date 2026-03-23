@@ -34,10 +34,10 @@ const ContactSection = () => {
           <ScrollReveal animation="animate-fade-in-left">
             <div className="space-y-8">
               {[
-                { icon: Phone, label: "Teléfono", value: "+54 11 1234-5678" },
+                { icon: Phone, label: "Teléfono", value: "2964 61-8615" },
                 { icon: Mail, label: "Email", value: "contacto@estudiojuridico.com" },
                 { icon: MapPin, label: "Dirección", value: "Perú 85, Río Grande, Tierra del Fuego" },
-                { icon: Clock, label: "Horario", value: "Lunes a Viernes, 9:00 a 18:00 hs" },
+                { icon: Clock, label: "Horario", value: "Lunes a Viernes, 15:00 a 19:00 hs" },
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-4 group">
                   <div className="w-12 h-12 flex items-center justify-center bg-primary text-primary-foreground flex-shrink-0 group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-500">
