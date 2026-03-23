@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-gold/20 transition-all duration-300">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#inicio" className="font-heading text-xl tracking-wider text-primary-foreground hover:text-accent transition-colors duration-300">
-          <span className="text-accent">⚖</span> Estudio Jurídico
+          <span className="text-accent">⚖</span> Dra. Agustina Andrade
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
