@@ -25,7 +25,7 @@ const ContactSection = () => {
           </h2>
           <div className="gold-divider mx-auto mb-6" />
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-light">
-            Agendá tu consulta. Primera entrevista sin cargo.
+            Agendá tu consulta.
           </p>
         </ScrollReveal>
 
