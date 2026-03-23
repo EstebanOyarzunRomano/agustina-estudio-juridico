@@ -36,7 +36,7 @@ const ContactSection = () => {
               {[
                 { icon: Phone, label: "Teléfono", value: "+54 11 1234-5678" },
                 { icon: Mail, label: "Email", value: "contacto@estudiojuridico.com" },
-                { icon: MapPin, label: "Dirección", value: "Av. Corrientes 1234, Piso 8°, CABA" },
+                { icon: MapPin, label: "Dirección", value: "Perú 85, Río Grande, Tierra del Fuego" },
                 { icon: Clock, label: "Horario", value: "Lunes a Viernes, 9:00 a 18:00 hs" },
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-4 group">
