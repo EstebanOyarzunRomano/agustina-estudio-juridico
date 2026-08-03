@@ -6,6 +6,9 @@ import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // Nombre exacto del repositorio de GitHub
+  base: "/agustina-estudio-juridico/",
+
   server: {
     host: "::",
     port: 8080,
@@ -13,7 +16,15 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), mcpPlugin(), mode === "development" && componentTagger()].filter(Boolean),
+
+  plugins: [
+    react(),
+
+    // Plugins de Lovable únicamente en desarrollo
+    mode === "development" && mcpPlugin(),
+    mode === "development" && componentTagger(),
+  ].filter(Boolean),
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
