@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-law.jpg";
+import heroImage from "@/assets/images/hero.jpeg";
 
 const HeroSection = () => {
   return (
