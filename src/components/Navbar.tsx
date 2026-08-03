@@ -14,23 +14,23 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-gold/20 transition-all duration-300">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2">
         <a
           href="#inicio"
-          className="-ml-3 gap-0 flex items-center hover:opacity-90 transition-opacity duration-300"
+          className="flex items-center min-w-0 flex-1 hover:opacity-90 transition-opacity duration-300"
         >
           <img
             src={logo}
             alt="Agustina Andrade - Abogada"
-            className="h-16 w-auto"
+            className="h-16 object-contain shrink-0"
           />
 
-          <div className="hidden sm:flex flex-col leading-none">
-            <span className="font-heading text-lg tracking-wide text-primary-foreground">
+          <div className="flex flex-col justify-center leading-none min-w-0">
+            <span className="font-heading text-base sm:text-lg tracking-wide text-primary-foreground whitespace-nowrap">
               Agustina Andrade
             </span>
 
-            <span className="text-xs uppercase tracking-[0.25em] text-accent">
+            <span className="text-[9px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-accent whitespace-nowrap">
               Abogada
             </span>
           </div>
@@ -51,7 +51,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-primary-foreground hover:text-accent transition-colors duration-300"
+          className="md:hidden shrink-0 text-primary-foreground hover:text-accent transition-colors duration-300"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
