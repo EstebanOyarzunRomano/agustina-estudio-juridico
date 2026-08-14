@@ -7,7 +7,7 @@ import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // Nombre exacto del repositorio de GitHub
-  base: "/agustina-estudio-juridico/",
+  base: "/",
 
   server: {
     host: "::",
